@@ -1,0 +1,26 @@
+import math
+if __name__ == '__main__':
+    grades = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        grades.append([name, score]) 
+    # print(grades)  
+    
+    lowest = math.inf
+    second_lowest = math.inf
+    
+    for grade in grades:
+        if grade[1] < lowest:
+            second_lowest = lowest
+            lowest = grade[1]
+        elif grade[1] > lowest and grade[1] < second_lowest:
+            second_lowest = grade[1]
+    # print(second_lowest)
+    name = []
+    for grade in grades:
+        if second_lowest == grade[1]:
+            name.append(grade[0])
+    name.sort()
+    for i in name:
+        print(i)
